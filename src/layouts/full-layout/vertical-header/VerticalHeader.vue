@@ -278,10 +278,6 @@ export default {
     ],
     userprofile: [
       { title: "Mi perfil", to: "/perfil" },
-      { title: "Mis clientes", to: "/apps/contact" },
-      { title: "Mis proveedores", to: "/apps/contact-grid" },
-      { title: "Correos", to: "/apps/email/inbox" },
-      { title: "Configuración de usuario", to: "/form-layouts/flformbasic" },
       { title: "Cerrar sesión", to: "/" }, // to: "/authentication/boxedlogin"
     ],
     href() {

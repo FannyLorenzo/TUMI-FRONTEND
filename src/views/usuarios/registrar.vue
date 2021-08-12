@@ -181,9 +181,9 @@ items: [
        ).then(data =>{
             console.log("entroo");
             console.log(data.data.message);
-            this.SET_CURRENT_ID(data.usuario_id);
+            this.SET_CURRENT_ID(data.data.usuario_id);            
             localStorage.setItem("token", 1);
-            this.$router.push({ path: "/perfil" });             
+             this.$router.push({ path: "/login" });            
           }).catch(err => {console.log(err.response)});
 
       

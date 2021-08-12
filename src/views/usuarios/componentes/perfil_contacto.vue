@@ -32,8 +32,8 @@
       </v-row>
     </v-card-text>
     <div class="pa-5 border-top text-right">
-      <v-btn v-if="current_user.usuario_id == token" color="primary" class="mr-2 text-capitalize" @click="editar" >Editar</v-btn>
-      <v-btn v-if="current_user.usuario_id == token" :disabled="!editando" color="black" class="text-capitalize" @click="cancelar" dark>Cancel</v-btn>
+      <v-btn  color="primary" class="mr-2 text-capitalize" @click="editar" >Editar</v-btn>
+      <v-btn  :disabled="!editando" color="black" class="text-capitalize" @click="cancelar" dark>Cancel</v-btn>
     </div>
   </v-card>
 </template>
