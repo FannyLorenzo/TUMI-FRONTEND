@@ -48,7 +48,7 @@
                   ></v-text-field>
                   <v-text-field
                     v-model="password"
-                    :counter="10"
+                    :counter="255"
                     :rules="passwordRules"
                     label="Contraseña"
                     required
@@ -134,7 +134,7 @@ items: [
     show1: false,
     passwordRules: [
       v => !!v || "Contraseña es requerida",
-      v => (v && v.length <= 10) || "La contraseña debe ser menor a 10 carateres"
+      v => (v && v.length <= 255) || "La contraseña debe ser menor a 255 carateres"
     ],
     username: "",
     usernameRules: [

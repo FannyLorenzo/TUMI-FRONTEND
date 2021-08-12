@@ -40,7 +40,7 @@ export default {
     // this.refrescarCurrentUsuario();
   },
   computed: {
-    ...mapState("auth", ["current_user"]),
+    ...mapState("auth", ["current_user","productfilter"]),
   },
 };
 </script>

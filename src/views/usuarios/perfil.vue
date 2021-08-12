@@ -53,11 +53,11 @@ export default {
     ...mapMutations("auth", ["SET_CURRENT_USER"]),
     
      mostrarId() {
-      let idProductor = this.current_id;
-      console.log("ID : " + idProductor);
+      
+      console.log("ID : " + this.current_id);
     
       let json = {
-        id: idProductor,
+        id: this.current_id,
       };
       axios
         .post("https://capacitacion-docente.herokuapp.com/users/detail/", json)

@@ -1,3 +1,5 @@
+
+import axios from "axios";
 export default {
 
     namespaced: true,
@@ -6,6 +8,7 @@ export default {
         token: null,
         count: 123,
         current_id: 0,
+        productfilter:[],
         current_user: {
             "DNI_RUC": "780079461",
             "apellido": "LOrenzo Q",
@@ -25,11 +28,34 @@ export default {
         },
     },
     mutations: {
+
+        listarProductos(state){
+            let my = state;                  
+              axios.get("https://capacitacion-docente.herokuapp.com/products/").then(function(response){
+             console.log("datadata "+response.data.data);
+             my.productfilter = response.data.data;
+             console.log("entro okii");
+                
+                })
+              .catch(err => {
+                console.log(err.response.data)
+              });
+          },
+        SET_productfilter(state, payload){
+            state.productfilter = payload;
+        },
+        GET_productfilter(state){
+            return state.productfilter;
+        },
         LOGIN_SUCCESS(state, response) {
-            state.token = response.token
+            state.token = response.token;
         },
         SET_CURRENT_ID(state, payload) {
-            state.current_id = payload.usuario_id;
+            state.current_id = payload;
+
+        },
+        SET_TOKEN(state, payload) {
+            state.token = payload;
 
         },
         SET_CURRENT_USER(state, payload) {

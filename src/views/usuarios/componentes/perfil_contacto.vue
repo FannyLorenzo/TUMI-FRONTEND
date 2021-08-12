@@ -26,14 +26,20 @@
         <v-col cols="12">
           <v-text-field label="Contact no" v-model="current_user.telefono" :disabled="!editando"></v-text-field>
         </v-col>
+        <v-col cols="6">
+          <v-text-field label="Link de Foto" v-model="current_user.foto" :disabled="!editando"></v-text-field>
+        </v-col>
+        <v-col cols="6">
+          <v-text-field label="Link de Imagen de Cabecera" v-model="current_user.landpage" :disabled="!editando"></v-text-field>
+        </v-col>
         <v-col cols="12">
           <v-textarea counter label="Quienes somos?" rows="2" :rules="rules" v-model="current_user.descripcion_larga" :disabled="!editando"></v-textarea>
         </v-col>
       </v-row>
     </v-card-text>
     <div class="pa-5 border-top text-right">
-      <v-btn  color="primary" class="mr-2 text-capitalize" @click="editar" >Editar</v-btn>
-      <v-btn  :disabled="!editando" color="black" class="text-capitalize" @click="cancelar" dark>Cancel</v-btn>
+      <v-btn  v-show="!editando" color="primary" class="mr-2 text-capitalize" @click="editar" >Editar</v-btn>
+      <v-btn  v-show="editando" color="black" class="text-capitalize" @click="guardar" dark>Guardar cambios</v-btn>
     </div>
   </v-card>
 </template>
@@ -65,7 +71,6 @@ export default {
   }),
   created(){
     this.rellenar_datos();
-    this.listar();
   },
   computed: {
        
@@ -77,21 +82,7 @@ export default {
 
   },
   methods:{
-
-     listar(){
-      let my = this;                  
-        axios.get("https://capacitacion-docente.herokuapp.com/users/").then(function(response){
-       console.log("datadata "+response.data.data);
-       my.options = response.data.data;
-       console.log("entro okii");
-          console.log(my.options);
-          
-          })
-        .catch(function(err) {
-          console.log(err.response.data)
-        });
-    },
-    
+   
     rellenar_datos(){
       let my = this;
     my.nombre= "Carla";
@@ -104,8 +95,25 @@ export default {
     my.descripcion_larga="En la finca tenemos todo bien bonis :)";
 
     },
-    editar(){
+        editar(){
       this.editando = true;
+     
+        },
+    guardar(){
+      this.editando = false;
+       let my = this;
+       let json = my.current_user;
+                         
+        axios.post("https://capacitacion-docente.herokuapp.com/users/edit/",json).then(function(response){
+       console.log("datadata "+response.data.message);
+       console.log("entro okii");
+             
+          })
+        .catch(function(err) {
+          console.log(err.response.data)
+        });
+
+
     },
     cancelar(){
       this.editando = false;

@@ -17,12 +17,6 @@ loginError: null,
 id_actual:null,
 usuario_actual:[],
 
-SET_USUARIO_ACTUAL(state, payload) {
-  state.usuario_actual = payload;
-},
-
-
-
     Sidebar_drawer: null,
     Customizer_drawer: false,
     SidebarColor: "white", //Change Sidebar Color || 'white', | "#2b2b2b" | "rgb(44, 59, 164)" | "rgb(96, 44, 164)" | "rgb(151, 210, 219)" | "rgb(77, 86, 100)"
