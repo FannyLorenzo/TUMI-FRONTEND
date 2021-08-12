@@ -27,7 +27,6 @@ Vue.use(VueGoogleMaps, {
 });
 
 // URL POR DEFECTO
-axios.defaults.baseURL = "http://178.128.144.217:8006/api/";//"http://64.225.59.243:8006/";//"http://13.84.40.139:8006/"; //http://178.128.144.217:8006/api/
 
 Vue.use(VueSkycons, {
   color: "#1e88e5",
